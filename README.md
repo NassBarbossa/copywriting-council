@@ -30,11 +30,16 @@ Avant de générer un email, une page de vente ou un post, le contenu passe deva
 
 ```
 ┌─────────────────────────────────────────────────┐
+│  0. BRAND (auto)                                │
+│     Charge config/brand.md                      │
+│     Identité, audience, ton, mots interdits     │
+├─────────────────────────────────────────────────┤
 │  1. BRIEF                                       │
-│     Objectif, audience, contraintes             │
+│     Objectif, contraintes, contexte             │
 ├─────────────────────────────────────────────────┤
 │  2. TOUR DE TABLE                               │
 │     Chaque expert donne son angle (30 sec)      │
+│     Adapté à la brand de Nass                   │
 ├─────────────────────────────────────────────────┤
 │  3. DÉBAT                                       │
 │     Confrontation des approches                 │
@@ -44,8 +49,20 @@ Avant de générer un email, une page de vente ou un post, le contenu passe deva
 │     Synthèse ou vote majoritaire                │
 ├─────────────────────────────────────────────────┤
 │  5. OUTPUT                                      │
-│     Contenu final + justification               │
+│     Contenu produit                             │
+├─────────────────────────────────────────────────┤
+│  6. REVIEW                                      │
+│     Chaque expert : ✅ OK ou ⚠️ FLAG            │
+├─────────────────────────────────────────────────┤
+│  7. ITÉRATION (si flags)                        │
+│     Mini-débat ciblé, max 2 tours               │
+│     Seuls les experts qui flag parlent           │
+├─────────────────────────────────────────────────┤
+│  8. VALIDATION                                  │
+│     Check final brand + livraison               │
 └─────────────────────────────────────────────────┘
+
+⚡ Model: **Sonnet** (économie de tokens avec 7 experts)
 ```
 
 ## Exemple de Débat
@@ -94,8 +111,10 @@ CTA unique, pas 3 liens différents."
 copywriting-council/
 ├── README.md
 ├── AGENTS.md
+├── config/
+│   └── brand.md              # Identité, audience, ton, voix, offres
 ├── council/
-│   ├── COUNCIL.md           # Process détaillé
+│   ├── COUNCIL.md            # Process détaillé
 │   └── experts/
 │       ├── ogilvy.md
 │       ├── halbert.md

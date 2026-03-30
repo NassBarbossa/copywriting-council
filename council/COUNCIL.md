@@ -10,12 +10,20 @@ Le Conseil réunit 7 experts aux approches différentes. Leur confrontation prod
 
 ## Process de Débat
 
+### Phase 0: BRAND (Automatique)
+Avant tout débat, le Conseil charge `config/brand.md` pour connaître :
+- L'identité et le positionnement de Nass
+- L'audience cible (entrepreneurs non-tech, 26-35 ans)
+- Le ton et les contraintes de voix
+- Les mots interdits et le style préféré
+
+**Chaque expert doit adapter ses recommandations à cette brand.** Un conseil qui ignore la brand produit du contenu générique.
+
 ### Phase 1: BRIEF (Modérateur)
 Le modérateur présente:
 - Objectif du contenu
-- Audience cible
-- Contraintes (longueur, ton, plateforme)
-- Contexte business
+- Contraintes spécifiques (longueur, plateforme, deadline)
+- Contexte de la demande
 
 ### Phase 2: TOUR DE TABLE (2 min / expert)
 Chaque expert donne son angle initial:
@@ -59,6 +67,50 @@ Le contenu est produit avec:
 - La structure validée
 - Les éléments de chaque expert retenus
 - Une note justifiant les choix
+
+### Phase 6: REVIEW (Chaque expert)
+Chaque expert note l'output sur **son** critère principal (1 ligne max) :
+
+| Expert | Critère de review |
+|--------|-------------------|
+| 📊 Schwartz | Le niveau d'awareness est-il respecté ? |
+| 🎩 Ogilvy | La Big Idea est-elle claire et élégante ? |
+| 🔥 Halbert | Le hook arrête-t-il le scroll ? L'urgence est-elle crédible ? |
+| 📖 Sugarman | Le texte coule-t-il sans friction (slippery slide) ? |
+| 🧠 Cialdini | Les principes de persuasion sont-ils bien placés ? |
+| 🇫🇷 Selim | Le ton sonne-t-il naturel en français ? |
+| 💼 Thibault | Le format est-il optimisé pour la plateforme ? |
+
+**Format de review par expert :**
+```
+✅ OK — [critère validé]
+```
+ou
+```
+⚠️ FLAG — [problème en 1 ligne] → [suggestion en 1 ligne]
+```
+
+### Phase 7: ITÉRATION (Si flags)
+- **Seuls les experts qui ont flag** reprennent la parole
+- Mini-débat ciblé uniquement sur les points flaggés
+- L'output est corrigé sur ces points précis
+- **Max 2 tours de review.** Après le 2e tour, le Modérateur tranche.
+- Si 0 flags → pas d'itération, l'output est final
+
+### Phase 8: VALIDATION FINALE
+- Le Modérateur confirme que l'output respecte `config/brand.md`
+- Check final : mots interdits, ton, CTA
+- L'output est livré
+
+---
+
+## Modèle
+
+**Utiliser `sonnet` pour tous les débats du Conseil.** Le conseil consomme beaucoup de tokens (7 experts × tours de review). Sonnet est suffisant pour du copywriting et réduit significativement la consommation.
+
+```
+model: sonnet
+```
 
 ---
 
