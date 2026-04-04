@@ -104,16 +104,6 @@ ou
 
 ---
 
-## Modèle
-
-**Utiliser `sonnet` pour tous les débats du Conseil.** Le conseil consomme beaucoup de tokens (7 experts × tours de review). Sonnet est suffisant pour du copywriting et réduit significativement la consommation.
-
-```
-model: sonnet
-```
-
----
-
 ## Rôles Spéciaux
 
 ### Le Modérateur

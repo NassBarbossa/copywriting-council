@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "Un fichier vient d'être écrit. Voici les infos : $ARGUMENTS\n\nExtrais le file_path depuis tool_input.file_path. Si le fichier N'EST PAS dans le dossier `debates/` du projet copywriting-council, ne fais RIEN et termine.\n\nSi le fichier EST dans `debates/`, c'est un log de débat du Conseil des Experts Copywriting. Lance la **loop de feedback** :\n\n---\n\n### 1. Lis les fichiers nécessaires\n- Le nouveau fichier de débat (le path dans tool_input.file_path)\n- Le feedback existant : `/Users/punk6995/.claude/projects/-Users-punk6995/memory/feedback_council_session.md`\n- La brand actuelle : `/Users/punk6995/copywriting-council/config/brand.md`\n\n### 2. Analyse 3 axes\n\n**Axe A — Nouvelles infos sur l'utilisateur**\nDans le log de débat, cherche la section 'Nouvelles infos apprises sur l'utilisateur'. Si elle contient des infos utiles pour les futures sessions (préférences, connaissances, style), ajoute-les dans un fichier user memory : `/Users/punk6995/.claude/projects/-Users-punk6995/memory/user_nass_profile.md` (crée-le s'il n'existe pas, avec le frontmatter type: user). Si le fichier existe déjà, mets-le à jour sans dupliquer.\n\n**Axe B — Réajustement du ton**\nCompare le ton du contenu produit dans le débat avec `config/brand.md`. Si le débat révèle que certaines expressions marchent mieux que d'autres, ou que l'utilisateur a corrigé le ton, note-le dans le feedback memory. NE modifie PAS brand.md directement — note juste les ajustements suggérés dans le feedback.\n\n**Axe C — Comportement des experts**\nDans le log de débat, cherche la section 'Comportement des experts'. Pour chaque expert noté 'à améliorer' :\n- Identifie le problème spécifique\n- Ajoute une leçon dans le feedback memory pour que cet expert s'améliore SANS dénaturer son expertise (ex: 'Halbert doit doser l'urgence sans devenir agressif' PAS 'Halbert doit être moins Halbert')\n\n### 3. Mets à jour les fichiers\n- `/Users/punk6995/.claude/projects/-Users-punk6995/memory/feedback_council_session.md` — ajoute les nouvelles leçons (axes B et C)\n- `/Users/punk6995/.claude/projects/-Users-punk6995/memory/user_nass_profile.md` — ajoute les nouvelles infos utilisateur (axe A)\n- `/Users/punk6995/.claude/projects/-Users-punk6995/memory/MEMORY.md` — ajoute un pointeur vers user_nass_profile.md s'il n'y est pas déjà\n\n### 4. Logge le résumé\nÉcris un résumé de ce qui a changé dans `/Users/punk6995/copywriting-council/debates/.feedback_loop.log` :\n```\n[DATE HEURE] Feedback loop exécutée sur [nom du fichier]\n- Axe A (user): [résumé 1 ligne ou 'rien de nouveau']\n- Axe B (ton): [résumé 1 ligne ou 'conforme']\n- Axe C (experts): [résumé 1 ligne ou 'tous OK']\n```\n\nSois concis. Ne change que ce qui est nécessaire. Si le débat n'a rien de nouveau, logge 'rien de nouveau' et ne modifie aucun fichier.",
+            "timeout": 120,
+            "statusMessage": "Feedback loop : analyse du débat..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "LOG=/Users/punk6995/copywriting-council/debates/.feedback_loop.log; if [ -f \"$LOG\" ]; then LAST=$(tail -3 \"$LOG\" 2>/dev/null | tr '\\n' ' '); echo \"{\\\"systemMessage\\\": \\\"Feedback loop: $LAST\\\"}\"; fi 2>/dev/null || true",
+            "statusMessage": "Bilan feedback..."
+          }
+        ]
+      }
+    ]
+  }
+}
