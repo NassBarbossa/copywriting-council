@@ -37,7 +37,10 @@
 - "VibeCoder" comme verbe
 - "builder" (franglais naturel)
 - "assez marrant quand on sait que..."
-- Émojis : 1 max, uniquement 😅 ou similaire pour l'autodérision
+- "bref" comme transition casual vers une conclusion
+- "(enfin presque)" comme parenthèse d'humilité/nuance
+- "Mon conseil pour les entrepreneurs :" pour se positionner en mentor
+- Émojis : 1 max, uniquement 😅 ou ✨ ou similaire, jamais décoratif
 
 ### Mots/expressions INTERDITS
 - synergy, leverage, ecosystem, disrupt, game-changer
@@ -45,6 +48,7 @@
 - Drama forcé : "personne ne veut l'admettre", "va faire débat"
 - paradigm, robust, cutting-edge
 - Hashtags
+- Les tirets longs « — » et « -- » : JAMAIS. Utiliser les points de suspension ou reformuler la phrase
 
 ## Structure de contenu préférée
 
@@ -59,7 +63,10 @@
 - Pose des questions rhétoriques puis y répond
 - Citations directes entre guillemets (dialogue réel)
 - Listes courtes pour le contraste (pas/pas/pas → oui)
-- Autodérision sur ses propres compétences
+- Autodérision sur ses propres compétences (max 1 par post, dosé)
+- Ouvre en "Je" pour le thought leadership (pas impersonnel)
+- CTA binaire polarisant : "X... ou Y ?" pour forcer le débat
+- Parenthèses d'humilité : "(enfin presque)", "(oui oui)"
 
 ## Offres
 
